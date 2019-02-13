@@ -1,0 +1,157 @@
+
+LISTADO DE MÉTODOS WALLET PAYPRO, ACCESO Y PARÁMETROS
+
+REGISTRO USUARIO 
+
+Método POST
+https://localhost:4443/registro
+Parámetros:
+	⁃	Entrada:	
+	o	 Usuario (String teléfono, String nombre, String estado, String password, Date fechaCreacion, Date fechaUltimoAcceso, String alias)
+
+OTP
+
+Método GET
+https://localhost:4443/otp
+Parámetros: 
+	⁃	Entrada:
+	o	String otp
+OTP 
+Método POST
+https://localhost:4443/otp
+Parámetros:
+	⁃	Entrada:
+	o	Usuario (String teléfono, String nombre, String estado, String password, Date fechaCreacion, Date fechaUltimoAcceso, String alias)
+
+ 
+CHANGE PASSWORD
+
+
+https://localhost:4443/changepass
+Método POST
+Parámetros: 
+	⁃	ChangePassword (String password, String newPassword)
+
+BALANCE
+
+
+
+https://localhost:4443/balance
+Método GET
+Parámetros:
+	⁃	Salida:
+ArrayList<Balance> (
+	String cuenta;
+	String descripcion;
+String balance;)
+
+TRANSACTION HISTORY
+
+Método GET
+https://localhost:4443/transacHist
+Parámetros: 
+	Entrada: 
+- String cuenta
+- String pagina.
+Salida: 
+	⁃	String paginaActual;
+	⁃	String paginaFinal;
+- 	ArrayList<Transaccion>; (String hasTransaccion;
+			int numBloque;
+			String fecha;
+			String origen;
+			String tipo;
+			String destino;
+			String ether;
+	String txFee )
+
+	
+CONTACTOS
+
+Método POST
+
+https://localhost:4443/conctactos
+Parámetros: 
+	⁃	Entrada:
+	o	List<String> teléfonos;
+	⁃	Salida:
+List<Contacto> (
+			String telefono;
+String cuenta;)
+
+NEW TOKEN
+
+https://localhost:4443/addNewToken
+Método POSt
+Parámetros:
+	⁃	Entrada: 
+	o	Token  (String smartContratAddress;
+		String tokenSymbol;
+		int decimals;
+		String password;
+		String tokenName;) 
+
+ENVIO DE TRANSACCION
+
+Método POST
+https://localhost:4443/transaccion
+Parámetros: 
+-Entrada: 
+- 	SendTransaccion(	
+String descripcion;
+			BigDecimal valor;
+			String destino;
+			String password;) 
+	⁃	Salida:
+	o	String idTransaccion
+	
+PROFILE
+
+Método GET
+https://localhost:4443/profile
+Parámetros:
+	⁃	Salida:
+	o	Perfil(
+		String nombre;
+		int gasPrice;
+		int gasLimit;)
+
+DETALLE TRANSACCION
+
+Método GET
+https://localhost:4443/transaccion
+
+Parámetros: 
+	Entrada: String idTransaccion
+Salida:	DetalleTransaccion(
+	
+	String transaccion;
+	String bloque;
+	Date fecha;
+	String mensaje;
+	int estado;
+	BigInteger confirmaciones;
+	String destino;
+	BigInteger cantidad; )
+
+
+
+
+
+UPDATE GASLIMIT
+
+Método POST
+https://localhost:4443/updateGasLimit
+Entrada: nuevo GasLimit
+Salida: - gasLimit
+ 
+
+
+
+UPDATE GASPRICE
+
+Método POST
+https://localhost:4443/updateGasPrice
+Entrada: nuevo GasPrice
+Salida: - gasPrice
+ 
